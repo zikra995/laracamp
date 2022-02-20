@@ -5,6 +5,7 @@
         <div class="container">
             <div class="row text-left">
                 <div class=" col-lg-12 col-12 header-wrap mt-4">
+                      @include('components.alert')
                     <p class="story">
                         DASHBOARD
                     </p>
@@ -14,7 +15,7 @@
                 </div>
             </div>
             <div class="row my-5">
-            @include('components.alert')
+      
             {{-- {{ $checkouts }} --}}
                 <table class="table">
                     <tbody>
