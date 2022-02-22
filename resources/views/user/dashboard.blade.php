@@ -36,11 +36,14 @@
                                 <strong>${{ $checkout->Camp->price }}</strong>
                             </td>
                             <td>
-                               @if ($checkout->is_paid)
-                                <strong class="text-success">Payment Succes</strong>
+                            {{-- <strong>${{ $checkout->payment_status}}</strong>     --}}
+                               @if ($checkout->payment_status == 'waiting')
+                               <a href ="{{$checkout->midtrans_url}}" class="btn btn-primary" target="blank">Bayar Sekarang </a>
                                 @else
-                                 <strong class="text-warning">Waiting for Payment</strong>
+                                <strong class="text-success">Payment Succes</strong>
                                  @endif
+                            </td>
+                            <td>
                             </td>
                             <td>
                                 <a href="#" class="btn btn-primary">
@@ -52,7 +55,7 @@
                         @empty
                             <tr>
                                 <td colspan="5">
-                                    <h3>No Data</h3>
+                                    <h3>No Camp Registered</h3>
                                 </td>
                             </tr>
                             
