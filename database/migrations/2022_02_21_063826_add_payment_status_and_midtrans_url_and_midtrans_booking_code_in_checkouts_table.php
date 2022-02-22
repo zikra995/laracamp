@@ -14,9 +14,9 @@ class AddPaymentStatusAndMidtransUrlAndMidtransBookingCodeInCheckoutsTable exten
     public function up()
     {
         Schema::table('checkouts', function (Blueprint $table) {
-            $table->string('paytment_status', 100)->default('waiting')->aftar('camp_id');
-            $table->string('midtans_url')->nullable()->aftar('paytment_status');
-            $table->string('midtans_booking_code')->nullable()->aftar('midtans_url');
+            $table->string('payment_status', 100)->default('waiting')->aftar('camp_id');
+            $table->string('midtrans_url')->nullable()->aftar('payment_status');
+            $table->string('midtrans_booking_code')->nullable()->aftar('midtans_url');
         });
     }
 
@@ -28,7 +28,7 @@ class AddPaymentStatusAndMidtransUrlAndMidtransBookingCodeInCheckoutsTable exten
     public function down()
     {
         Schema::table('checkouts', function (Blueprint $table) {
-           $table->dropColumn(['payment_status', 'midtans_url','midtans_booking_code']);
+           $table->dropColumn(['payment_status', 'midtans_url','midtrans_booking_code']);
         });
     }
 }
