@@ -50,6 +50,7 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('user/dashboard')->namespace('User')->name('user.')->middleware('ensureUserRole:user')->group(function(){
         Route::get('/', [UserDasboard::class, 'index'])->name('dashboard');
     });
+    
     //admin dashboard
     Route::prefix('admin/dashboard')->namespace('Admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function(){
         Route::get('/', [AdminDasboard::class, 'index'])->name('dashboard');
